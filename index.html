@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+  </head>
+  <body  class="bg-gray-50">
+
+      <div class="flex justify-between">
+        <div class="">
+          <div class="text-4xl" id="time"></div>
+          <div class="text-2xl" id="date"></div>
+
+          <div class="px-4 py-2 border-2 border-blue-800 rounded-xl" id="current-weather-items">
+
+            <div class="flex items-center justify-around">
+              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="bg-sky-500 rounded-full">
+              <div  class="text-4xl" id="current-temp">25&#176; C</div>
+            </div>
+
+            <div class="flex justify-between">
+              <div>Humedad</div>
+              <div>80%</div>
+            </div>
+
+            <div class="flex justify-between">
+              <div>Viento </div>
+              <div>30 km/h <span>NE</span></div>
+            </div>
+
+            <div class="flex justify-between">
+              <div>Prob. lluvia </div>
+              <div>30%</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="text-end">
+          <div class="time-zone" id="time-zone">Valencia/España</div>
+          <div id="country" class="country">ES</div>
+        </div>
+      </div>
+
+
+
+    <div class="border-2 border-green-500">
+      <div class="today" id="current-temp">
+
+      </div>
+
+      <div class="py-4 px-2 flex flex-col md:flex-row items-center gap-4" id="weather-forecast">
+        <div class="">
+          <div class="day">Martes</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="day">Miércoles</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="day">Jueves</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="day">Viernes</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="day">Sábado</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="day">Domingo</div>
+          <div class="flex items-center">
+            <img src="http://openweathermap.org/img/wn/10d.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+            <div class="temp">26&#176; C</div>
+            <div>-</div>
+            <div class="temp">29&#176; C</div>
+          </div>
+          <div class="flex">
+            <div>Prob. lluvia: </div>
+            <div>30%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
