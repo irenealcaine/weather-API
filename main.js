@@ -1,6 +1,6 @@
 const timeEl = document.getElementById('time')
 const dateEl = document.getElementById('date')
-const currentWeatherItemsEl = document.getElementById('current-weather-item')
+const currentWeatherItemsEl = document.getElementById('current-weather-items')
 const timeZone = document.getElementById('time-zone')
 const countryEl = document.getElementById('country')
 const weatherForecastEl = document.getElementById('weather-forecast')
@@ -39,5 +39,29 @@ function getWeatherData() {
 }
 
 function showWeatherData(data) {
+  let { humidity, wind_speed, weather, temp } = data.current
+  currentWeatherItemsEl.innerHTML =
+    `
+    <div class="flex items-center justify-around">
+      <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full">
+      <div  class="text-4xl" id="current-temp">${temp}&#176; C</div>
+    </div>
+
+    <div class="flex justify-between">
+      <div>Humedad</div>
+      <div>${humidity} %</div>
+    </div>
+
+    <div class="flex justify-between">
+      <div>Viento </div>
+      <div>${wind_speed} m/s <span>NE</span></div>
+    </div>
+  `
+
+  // <div class="flex justify-between">
+  //   <div>Lluvia </div>
+  //   <div>30%</div>
+  // </div>
+
 
 }
