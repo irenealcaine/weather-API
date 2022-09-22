@@ -1,3 +1,4 @@
+
 const timeEl = document.getElementById('time')
 const dateEl = document.getElementById('date')
 const currentWeatherItemsEl = document.getElementById('current-weather-items')
@@ -5,6 +6,7 @@ const timeZone = document.getElementById('time-zone')
 const countryEl = document.getElementById('country')
 const weatherForecastEl = document.getElementById('weather-forecast')
 const currentTempEl = document.getElementById('current-temp')
+const hourlyData = document.getElementById('hourly-data')
 
 const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -62,14 +64,7 @@ function showWeatherData(data) {
 
   `
 
-  // <div class="flex justify-between">
-  //   <div>Lluvia </div>
-  //   <div>30%</div>
-  // </div>
-
   let otherDayForecast = `  `
-
-
 
   data.daily.forEach((day, idx) => {
     if (idx == 0) {
@@ -104,4 +99,66 @@ function showWeatherData(data) {
   })
 
   weatherForecastEl.innerHTML = otherDayForecast
+
+  let hoursly = []
+  let hoursForecast = []
+
+  data.hourly.forEach((hour, idx) => {
+    if (idx <= 12) {
+      hoursly[idx] = `${hour.temp}`
+      hoursForecast[idx] = `${new Date(hour.dt * 1000).getHours()}:00`
+    }
+  })
+
+
+
+  const hours = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  const temps = [20, 25, 22, 24, 26, 27]
+
+  const myChart = new Chart(hourlyData, {
+    type: 'line',
+    data: {
+      labels: hoursForecast,
+      datasets: [{
+        label: 'Temperatura en las próximas horas',
+        scalesFontColor: '#fff',
+        data: hoursly,
+        borderColor: '#1d4ed8',
+        radius: 0,
+        tension: 0.4,
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          ticks: {
+            color: "white"
+          },
+          grid: {
+            color: "#999"
+          }
+        },
+        y: {
+          ticks: {
+            color: "white"
+          },
+          grid: {
+            color: "#999"
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'white',
+            boxWidth: 0,
+            boxHeight: 0
+          }
+        }
+      }
+    }
+  });
 }
+
+
+
