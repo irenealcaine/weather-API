@@ -551,6 +551,14 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -561,6 +569,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .flex-col {
