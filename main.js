@@ -10,9 +10,11 @@ const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', '
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
 const API_KEY = import.meta.env.VITE_API_KEY
+const time = new Date()
+
+
 
 setInterval(() => {
-  const time = new Date()
   const month = time.getMonth()
   const day = time.getDay()
   const hour = time.getHours()
@@ -34,6 +36,7 @@ function getWeatherData() {
       .then(data => {
         console.log(data)
         showWeatherData(data)
+
       })
   })
 }
@@ -63,5 +66,31 @@ function showWeatherData(data) {
   //   <div>30%</div>
   // </div>
 
+  let otherDayForecast = `  `
 
+
+
+  data.daily.forEach((day, idx) => {
+    if (idx == 0) {
+
+    } else {
+
+      const formatDays = new Date(day.dt * 1000);
+      const showDay = days[formatDays.getDay()]
+      otherDayForecast +=
+        `
+      <div class="bg-blue-700 rounded-xl py-2 px-4 w-full">
+          <div class="flex justify-between items-center">
+            <div class="day">${showDay}</div>
+            <div class="flex items-center justify-end">
+              <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+              <div class="temp">${day.temp.min}&#176; C - ${day.temp.max}&#176; C</div>
+            </div>
+          </div>
+      </div>
+      `
+    }
+  })
+
+  weatherForecastEl.innerHTML = otherDayForecast
 }
