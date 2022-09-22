@@ -21,7 +21,7 @@ setInterval(() => {
   const minute = time.getMinutes()
   const date = time.getDate()
 
-  timeEl.innerHTML = hour + ':' + minute
+  timeEl.innerHTML = (hour < 10 ? '0' + hour : hour) + ':' + (minute < 10 ? '0' + minute : minute)
   dateEl.innerHTML = days[day] + ', ' + date + ' de ' + months[month]
 
 }, 1000)
@@ -47,7 +47,7 @@ function showWeatherData(data) {
     `
     <div class="flex items-center justify-around">
       <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full">
-      <div  class="text-4xl" id="current-temp">${temp}&#176; C</div>
+      <div  class="text-4xl" id="current-temp">${Math.round(temp)}&#176; C</div>
     </div>
 
     <div class="flex justify-between">
@@ -57,7 +57,7 @@ function showWeatherData(data) {
 
     <div class="flex justify-between">
       <div>Viento </div>
-      <div>${wind_speed} m/s <span>NE</span></div>
+      <div>${wind_speed} m/s</div>
     </div>
   `
 
@@ -77,18 +77,19 @@ function showWeatherData(data) {
 
       const formatDays = new Date(day.dt * 1000);
       const showDay = days[formatDays.getDay()]
+
       otherDayForecast +=
         `
-      <div class="bg-blue-700 rounded-xl py-2 px-4 w-full">
-          <div class="flex justify-between items-center">
-            <div class="day">${showDay}</div>
-            <div class="flex items-center justify-end">
-              <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
-              <div class="temp">${day.temp.min}&#176; C - ${day.temp.max}&#176; C</div>
+        <div class="bg-blue-700 rounded-xl py-2 px-4 w-full">
+            <div class="flex justify-between items-center">
+              <div class="day">${showDay}</div>
+              <div class="flex items-center justify-end">
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
+                <div class="temp">${Math.round(day.temp.min)}&#176; C - ${Math.round(day.temp.max)}&#176; C</div>
+              </div>
             </div>
-          </div>
-      </div>
-      `
+        </div>
+        `
     }
   })
 
