@@ -29,7 +29,7 @@ function getWeatherData() {
   navigator.geolocation.getCurrentPosition((succes) => {
     let { latitude, longitude } = succes.coords
 
-    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,alerts&appid=${API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,alerts&units=metric&appid=${API_KEY}`)
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -38,4 +38,6 @@ function getWeatherData() {
   })
 }
 
+function showWeatherData(data) {
 
+}
