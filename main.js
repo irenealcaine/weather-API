@@ -116,18 +116,18 @@ function showWeatherData(data) {
         <div class="bg-blue-700 bg-opacity-60 rounded-xl py-2 px-4 w-full">
           <details>
             <summary class="list-none">
-              <div class="flex justify-between items-center">
-                <div class="day">${showDay}</div>
-                <div class="flex items-center justify-end">
+              <div class="flex md:flex-col justify-between items-center">
+                <div class="text-xl">${showDay}</div>
+                <div class="flex md:flex-col items-center justify-end">
                   <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
-                  <div class="temp">${Math.round(day.temp.min)}&#176; C - ${Math.round(day.temp.max)}&#176; C</div>
+                  <div class="pl-4">${Math.round(day.temp.min)}&#176; C - ${Math.round(day.temp.max)}&#176; C</div>
                 </div>
               </div>
             </summary>
-            <div class="border-2 rounded-xl px-4 py-2 mt-2">
-              <div>Humedad: ${day.humidity}%</div>
-              <div>Viento: ${day.wind_speed} m/s</div>
-              <div>Prob. de lluvia: ${Math.round(day.pop * 100)} %</div>
+            <div class="border-2 rounded-xl px-4 py-2 mt-2 text-sm">
+              <div>Humedad: <b>${day.humidity}%</b></div>
+              <div>Viento: <b>${day.wind_speed} m/s</b></div>
+              <div>Prob. de lluvia: <b>${Math.round(day.pop * 100)}%</b></div>
             </div>
           </details>
         </div>
