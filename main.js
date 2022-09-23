@@ -165,7 +165,6 @@ function showWeatherData(data) {
         yAxisID: 'yAxis'
       }]
     },
-
     options: {
       scales: {
         x: {
@@ -209,11 +208,7 @@ function showWeatherData(data) {
       }
     }
   },
-
   );
-
-
-
 }
 
 
