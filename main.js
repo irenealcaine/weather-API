@@ -7,6 +7,7 @@ const countryEl = document.getElementById('country')
 const weatherForecastEl = document.getElementById('weather-forecast')
 const currentTempEl = document.getElementById('current-temp')
 const hourlyData = document.getElementById('hourly-data')
+const hourlyRain = document.getElementById('hourly-rain')
 
 const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -44,7 +45,7 @@ function getWeatherData() {
 }
 
 function showWeatherData(data) {
-  let { humidity, wind_speed, weather, temp, rain } = data.current
+  let { humidity, wind_speed, weather, temp } = data.current
   currentWeatherItemsEl.innerHTML =
     `
     <div class="flex items-center justify-around">
@@ -90,7 +91,7 @@ function showWeatherData(data) {
             <div class="border-2 rounded-xl px-4 py-2 mt-2">
               <div>Humedad: ${day.humidity}%</div>
               <div>Viento: ${day.wind_speed} m/s</div>
-              <div>Lluvia: ${day.rain} mm</div>
+              <div>Prob. de lluvia: ${day.pop * 100} %</div>
             </div>
           </details>
         </div>
@@ -102,32 +103,39 @@ function showWeatherData(data) {
 
   let hoursly = []
   let hoursForecast = []
+  let hourslyRain = []
 
   data.hourly.forEach((hour, idx) => {
-    if (idx <= 12) {
-      hoursly[idx] = `${hour.temp}`
+    if (idx <= 24) {
+      hoursly[idx] = hour.temp
+      hourslyRain[idx] = hour.pop * 100
       hoursForecast[idx] = `${new Date(hour.dt * 1000).getHours()}:00`
     }
   })
 
-
-
-  const hours = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-  const temps = [20, 25, 22, 24, 26, 27]
-
   const myChart = new Chart(hourlyData, {
-    type: 'line',
     data: {
       labels: hoursForecast,
       datasets: [{
-        label: 'Temperatura en las próximas horas',
-        scalesFontColor: '#fff',
+        type: 'line',
+        label: 'Temperatura (ºC)',
         data: hoursly,
-        borderColor: '#1d4ed8',
+        borderColor: '#fff',
         radius: 0,
         tension: 0.4,
+
+      }, {
+        label: '',
+        type: 'bar',
+        label: 'Probabilidad de lluvia (%)',
+        data: hourslyRain,
+        backgroundColor: '#1d4ed8aa',
+        borderColor: '#1d4ed8',
+        borderWidth: 2,
+        yAxisID: 'yAxis'
       }]
     },
+
     options: {
       scales: {
         x: {
@@ -135,7 +143,7 @@ function showWeatherData(data) {
             color: "white"
           },
           grid: {
-            color: "#999"
+            color: "transparent"
           }
         },
         y: {
@@ -143,7 +151,20 @@ function showWeatherData(data) {
             color: "white"
           },
           grid: {
-            color: "#999"
+            color: "transparent"
+          },
+          suggestedMin: 10,
+          suggestedMax: 40,
+        },
+        yAxis: {
+          position: 'right',
+          suggestedMin: 0,
+          suggestedMax: 100,
+          ticks: {
+            color: "white"
+          },
+          grid: {
+            color: "transparent"
           }
         }
       },
@@ -151,13 +172,18 @@ function showWeatherData(data) {
         legend: {
           labels: {
             color: 'white',
-            boxWidth: 0,
-            boxHeight: 0
+            boxWidth: 2,
+            boxHeight: 2
           }
         }
       }
     }
-  });
+  },
+
+  );
+
+
+
 }
 
 
