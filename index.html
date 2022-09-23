@@ -7,28 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
   </head>
-  <body class="bg-image bg-cover bg-no-repeat text-white py-2 px-4">
+  <body class="bg-cover bg-no-repeat text-white py-2 px-4" id="bg">
 
-      <div class=" flex flex-col md:flex-row justify-between">
-        <div class="">
-          <div class="text-4xl " id="time"></div>
-          <div class="text-2xl" id="date"></div>
-          <div id="location">Casinos</div>
-          <div class="px-4 py-2 bg-blue-700 rounded-xl" id="current-weather-items"></div>
-        </div>
-        <div class="px-4 py-2">
-          <canvas id="hourly-data" width="200" height="150"></canvas>
-        </div>
-      </div>
-
+  <div class=" flex flex-col md:flex-row justify-between gap-2">
     <div class="">
-      <div class="today" id="current-temp"></div>
-      <div class=" p-2 flex flex-col md:flex-row items-center gap-2 border-blue-700 border-2 rounded-xl" id="weather-forecast"></div>
+      <div class="text-4xl " id="time"></div>
+      <div class="text-2xl" id="date"></div>
+      <div class="px-4 py-2 bg-blue-700 rounded-xl bg-opacity-60 mt-2" id="current-weather-items"></div>
     </div>
+    <div class="px-4 py-2 bg-gray-900 rounded-xl bg-opacity-60">
+      <canvas id="hourly-data" width="200" height="150" class=""></canvas>
+    </div>
+  </div>
 
-    <script src="./main.js" type="module"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <div class="mt-4 flex flex-col md:flex-row items-center gap-2" id="weather-forecast"></div>
+
+
+  <script src="./main.js" type="module"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   </body>
 </html>

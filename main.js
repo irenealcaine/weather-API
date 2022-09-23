@@ -8,6 +8,7 @@ const weatherForecastEl = document.getElementById('weather-forecast')
 const currentTempEl = document.getElementById('current-temp')
 const hourlyData = document.getElementById('hourly-data')
 const hourlyRain = document.getElementById('hourly-rain')
+const bg = document.getElementById('bg')
 
 const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -48,9 +49,9 @@ function showWeatherData(data) {
   let { humidity, wind_speed, weather, temp } = data.current
   currentWeatherItemsEl.innerHTML =
     `
-    <div class="flex items-center justify-around">
+    <div class="flex items-center justify-around p-2">
       <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full">
-      <div  class="text-4xl" id="current-temp">${Math.round(temp)}&#176; C</div>
+      <div  class="text-6xl" id="current-temp">${Math.round(temp)}&#176; C</div>
     </div>
 
     <div class="flex justify-between">
@@ -65,6 +66,41 @@ function showWeatherData(data) {
 
   `
 
+  switch (weather[0].icon) {
+    case '01d':
+      bg.classList.add('bg-day')
+      break
+    case '01n':
+      bg.classList.add('bg-night')
+      break
+    case '02d':
+    case '02n':
+    case '03d':
+    case '03n':
+    case '04d':
+    case '04n':
+      bg.classList.add('bg-clouds')
+      break
+    case '09d':
+    case '09n':
+    case '10d':
+    case '10n':
+      bg.classList.add('bg-rain')
+      break
+    case '11d':
+    case '11n':
+      bg.classList.add('bg-storm')
+      break
+    case '13d':
+    case '13n':
+      bg.classList.add('bg-snow')
+      break
+    case '50d':
+    case '50n':
+      bg.classList.add('bg-mist')
+      break
+  }
+
   let otherDayForecast = `  `
 
   data.daily.forEach((day, idx) => {
@@ -77,7 +113,7 @@ function showWeatherData(data) {
 
       otherDayForecast +=
         `
-        <div class="bg-blue-700 rounded-xl py-2 px-4 w-full">
+        <div class="bg-blue-700 bg-opacity-60 rounded-xl py-2 px-4 w-full">
           <details>
             <summary class="list-none">
               <div class="flex justify-between items-center">
@@ -91,7 +127,7 @@ function showWeatherData(data) {
             <div class="border-2 rounded-xl px-4 py-2 mt-2">
               <div>Humedad: ${day.humidity}%</div>
               <div>Viento: ${day.wind_speed} m/s</div>
-              <div>Prob. de lluvia: ${day.pop * 100} %</div>
+              <div>Prob. de lluvia: ${Math.round(day.pop * 100)} %</div>
             </div>
           </details>
         </div>
@@ -120,7 +156,7 @@ function showWeatherData(data) {
         type: 'line',
         label: 'Temperatura (ºC)',
         data: hoursly,
-        borderColor: '#fff',
+        borderColor: '#c2410c',
         radius: 0,
         tension: 0.4,
 
