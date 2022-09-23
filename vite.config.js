@@ -6,8 +6,4 @@ module.exports = {
   base,
   mode,
   publicDir: "../public",
-  build: {
-    outDir: "../dist",
-    assetsDir: "./"
-  }
 };
