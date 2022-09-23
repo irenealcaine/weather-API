@@ -13,8 +13,6 @@ const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 
 const API_KEY = import.meta.env.VITE_API_KEY
 const time = new Date()
 
-
-
 setInterval(() => {
   const month = time.getMonth()
   const day = time.getDay()
@@ -60,7 +58,6 @@ function showWeatherData(data) {
       <div>Viento </div>
       <div>${wind_speed} m/s</div>
     </div>
-
   `
 
   switch (weather[0].icon) {
