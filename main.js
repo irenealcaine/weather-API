@@ -107,7 +107,7 @@ function showWeatherData(data) {
 
       otherDayForecast +=
         `
-        <div class="bg-blue-700 bg-opacity-60 rounded-xl w-full hover:cursor-pointer">
+        <div class="bg-blue-700 bg-opacity-60 rounded-xl w-full hover:cursor-pointer hover:bg-opacity-100">
           <details>
             <summary class="list-none">
               <div class="flex md:flex-col justify-between items-center py-2 px-4">
