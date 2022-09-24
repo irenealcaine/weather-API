@@ -110,8 +110,8 @@ function showWeatherData(data) {
         <div class="bg-blue-700 bg-opacity-60 rounded-xl w-full hover:cursor-pointer">
           <details>
             <summary class="list-none">
-              <div class="flex md:flex-col justify-between items-center p-2">
-                <div class="text-xl pt-4">${showDay}</div>
+              <div class="flex md:flex-col justify-between items-center py-2 px-4">
+                <div class="text-xl">${showDay}</div>
                 <div class="flex md:flex-col items-center justify-end">
                   <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
                   <div class="">${Math.round(day.temp.min)}&#176; C - ${Math.round(day.temp.max)}&#176; C</div>
