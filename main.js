@@ -107,7 +107,7 @@ function showWeatherData(data) {
 
       otherDayForecast +=
         `
-        <div class="bg-blue-700 bg-opacity-60 rounded-xl py-2 px-4 w-full">
+        <div class="bg-blue-700 bg-opacity-60 rounded-xl py-2 px-4 w-full hover:cursor-pointer">
           <details>
             <summary class="list-none">
               <div class="flex md:flex-col justify-between items-center">
@@ -182,8 +182,6 @@ function showWeatherData(data) {
           grid: {
             color: "transparent"
           },
-          suggestedMin: 10,
-          suggestedMax: 40,
         },
         yAxis: {
           position: 'right',
