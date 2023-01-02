@@ -1,4 +1,6 @@
 
+import 'chartjs-plugin-datalabels'
+
 const timeEl = document.getElementById('time')
 const dateEl = document.getElementById('date')
 const currentWeatherItemsEl = document.getElementById('current-weather-items')
@@ -44,8 +46,8 @@ function showWeatherData(data) {
   let { humidity, wind_speed, weather, temp } = data.current
   currentWeatherItemsEl.innerHTML =
     `
-    <div class="flex items-center justify-around p-2">
-      <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full">
+    <div class="flex items-center justify-start p-2">
+      <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full mr-2">
       <div  class="text-6xl" id="current-temp">${Math.round(temp)}&#176; C</div>
     </div>
 
@@ -136,7 +138,7 @@ function showWeatherData(data) {
   let hourslyRain = []
 
   data.hourly.forEach((hour, idx) => {
-    if (idx <= 24) {
+    if (idx <= 12) {
       hoursly[idx] = hour.temp
       hourslyRain[idx] = hour.pop * 100
       hoursForecast[idx] = `${new Date(hour.dt * 1000).getHours()}:00`
@@ -153,7 +155,9 @@ function showWeatherData(data) {
         borderColor: '#c2410c',
         radius: 0,
         tension: 0.4,
-
+        datalabels: {
+          color: '#FFCE56'
+        }
       }, {
         label: '',
         type: 'bar',
@@ -202,7 +206,19 @@ function showWeatherData(data) {
             boxWidth: 2,
             boxHeight: 2
           }
+        },
+        datalabels: {
+          anchor: 'end',
+          align: 'top',
+          color: '#36A2EB'
         }
+      }
+    },
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'top',
+        color: '#36A2EB'
       }
     }
   },

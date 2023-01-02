@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/svg" href="/favicon.svg"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
-  </head>
-  <body class="bg-cover bg-no-repeat text-white py-2 px-4" id="bg">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/svg" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather app</title>
+</head>
+
+<body class="h-screen bg-cover bg-no-repeat text-white py-2 px-4" id="bg">
 
   <div class=" flex flex-col md:flex-row justify-between gap-2">
-    <div class="md:px-16 md:py-10">
-      <div class="text-4xl " id="time"></div>
-      <div class="text-2xl" id="date"></div>
-      <div class="px-4 py-2 bg-blue-700 rounded-xl bg-opacity-60 mt-2" id="current-weather-items"></div>
+    <div class="md:mx-6 md:my-4 lg:mx-16 lg:my-10">
+      <div class="text-6xl " id="time"></div>
+      <div class="text-4xl" id="date"></div>
+      <div class="px-4 py-2 bg-blue-700 rounded-xl bg-opacity-40 mt-2" id="current-weather-items"></div>
     </div>
-    <div class="px-4 py-2 md:px-16 md:py-10 bg-gray-900 rounded-xl bg-opacity-60 md:w-3/5 ">
+    <div class="px-4 py-2 md:my-16 lg:mx-10 bg-gray-900/40 rounded-xl md:w-3/5 h-auto">
       <canvas id="hourly-data" class=""></canvas>
     </div>
   </div>
@@ -27,7 +29,10 @@
 
   <script src="./main.js" type="module"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  </body>
+</body>
+
 </html>
