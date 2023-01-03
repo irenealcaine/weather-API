@@ -10,21 +10,23 @@
   <title>Weather app</title>
 </head>
 
-<body class="h-screen bg-cover bg-no-repeat text-white py-2 px-4" id="bg">
+<body class="min-h-screen max-h-max bg-cover bg-no-repeat text-white" id="bg">
 
-  <div class=" flex flex-col md:flex-row justify-between gap-2">
-    <div class="md:mx-6 md:my-4 lg:mx-16 lg:my-10">
+  <div class=" flex flex-col md:flex-row justify-between ">
+    <div class="md:mx-6 md:mt-4 lg:ml-16 lg:mt-10">
       <div class="text-6xl " id="time"></div>
       <div class="text-4xl" id="date"></div>
-      <div class="px-4 py-2 bg-blue-700 rounded-xl bg-opacity-40 mt-2" id="current-weather-items"></div>
+      <div class="px-4 py-2 bg-blue-700/20 rounded-xl mt-8" id="current-weather-items"></div>
     </div>
-    <div class="px-4 py-2 md:my-16 lg:mx-10 bg-gray-900/40 rounded-xl md:w-3/5 h-auto">
+    <div class="md:mt-4 md:mr-6 lg:mr-16 lg:mt-10 md:w-3/5 lg:w-5/12">
       <canvas id="hourly-data" class=""></canvas>
     </div>
   </div>
 
 
-  <div class="mt-4 flex flex-col md:flex-row items-center md:items-start gap-2" id="weather-forecast"></div>
+  <div class="md:absolute bottom-4 mt-4 flex flex-col md:flex-row items-center md:items-start gap-2 w-full px-4"
+    id="weather-forecast">
+  </div>
 
 
   <script src="./main.js" type="module"></script>

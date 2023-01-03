@@ -47,8 +47,8 @@ function showWeatherData(data) {
   currentWeatherItemsEl.innerHTML =
     `
     <div class="flex items-center justify-start p-2">
-      <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full mr-2">
-      <div  class="text-6xl" id="current-temp">${Math.round(temp)}&#176; C</div>
+      <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full mr-2 w-16">
+      <div  class="text-6xl" id="current-temp">${Math.round(temp)}&#176;C</div>
     </div>
 
     <div class="flex justify-between">
@@ -109,23 +109,19 @@ function showWeatherData(data) {
 
       otherDayForecast +=
         `
-        <div class="bg-blue-700 bg-opacity-60 rounded-xl w-full hover:cursor-pointer hover:bg-opacity-100">
-          <details>
-            <summary class="list-none">
-              <div class="flex md:flex-col justify-between items-center py-2 px-4">
+        <div class="bg-blue-700/20 rounded-xl w-full py-2 px-4">
+              <div class="flex md:flex-col justify-between items-center ">
                 <div class="text-xl">${showDay}</div>
                 <div class="flex md:flex-col items-center justify-end">
-                  <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10">
-                  <div class="">${Math.round(day.temp.min)}&#176; C - ${Math.round(day.temp.max)}&#176; C</div>
+                  <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10 mr-2 md:mr-0">
+                  <div class="">${Math.round(day.temp.min)}&#176;C - ${Math.round(day.temp.max)}&#176;C</div>
                 </div>
               </div>
-            </summary>
-            <div class="border-2 rounded-xl px-4 py-2 mt-2 text-sm">
-              <div>Humedad: <b>${day.humidity}%</b></div>
-              <div>Viento: <b>${day.wind_speed} m/s</b></div>
-              <div>Prob. de lluvia: <b>${Math.round(day.pop * 100)}%</b></div>
+            <div class="flex md:flex-col mt-2 text-sm">
+              <div class="md:ml-0 ml-4">💧 <b>${day.humidity}%</b></div>
+              <div class="md:ml-0 ml-4">🪁 <b>${day.wind_speed} m/s</b></div>
+              <div class="md:ml-0 ml-4">🌧️ <b>${Math.round(day.pop * 100)}%</b></div>
             </div>
-          </details>
         </div>
         `
     }
