@@ -48,17 +48,17 @@ function showWeatherData(data) {
     `
     <div class="flex items-center justify-start p-2">
       <img src="http://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="weather icon" class="bg-sky-500 rounded-full mr-2 w-16">
-      <div  class="text-6xl" id="current-temp">${Math.round(temp)}&#176;C</div>
+      <div class="text-6xl font-bold" id="current-temp">${Math.round(temp)}&#176;C</div>
     </div>
 
     <div class="flex justify-between">
-      <div>Humedad</div>
-      <div>${humidity} %</div>
+      <div class="font-thin">💧 Humedad</div>
+      <div class="font-bold">${humidity} %</div>
     </div>
 
     <div class="flex justify-between">
-      <div>Viento </div>
-      <div>${wind_speed} m/s</div>
+      <div class="font-thin">🪁 Viento </div>
+      <div class="font-bold">${wind_speed} m/s</div>
     </div>
   `
 
@@ -109,18 +109,18 @@ function showWeatherData(data) {
 
       otherDayForecast +=
         `
-        <div class="bg-blue-700/20 rounded-xl w-full py-2 px-4">
-              <div class="flex md:flex-col justify-between items-center ">
-                <div class="text-xl">${showDay}</div>
-                <div class="flex md:flex-col items-center justify-end">
-                  <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10 mr-2 md:mr-0">
-                  <div class="">${Math.round(day.temp.min)}&#176;C - ${Math.round(day.temp.max)}&#176;C</div>
+        <div class="w-full py-2 px-4 border-b border-sky-500 md:border-b-0">
+              <div class="flex md:flex-col justify-between items-center gap-2">
+                <div class="text-lg bg-slate-900/50 py-0.5 px-2 rounded">${showDay}</div>
+                <div class="flex items-center justify-end">
+                  <div class="font-bold text-2xl">${Math.round(day.temp.day)}&#176;C</div>
+                  <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" alt="weather icon" class="bg-sky-500 rounded-full w-10 ml-2 w-8">
                 </div>
               </div>
-            <div class="flex md:flex-col mt-2 text-sm">
-              <div class="md:ml-0 ml-4">💧 <b>${day.humidity}%</b></div>
-              <div class="md:ml-0 ml-4">🪁 <b>${day.wind_speed} m/s</b></div>
-              <div class="md:ml-0 ml-4">🌧️ <b>${Math.round(day.pop * 100)}%</b></div>
+            <div class="flex md:flex-col mt-2 text-sm font-thin">
+              <div class="ml-4 md:ml-0 lg:ml-4">💧 ${day.humidity}%</div>
+              <div class="ml-4 md:ml-0 lg:ml-4">🪁 ${day.wind_speed} m/s</div>
+              <div class="ml-4 md:ml-0 lg:ml-4">🌧️ ${Math.round(day.pop * 100)}%</div>
             </div>
         </div>
         `
@@ -149,11 +149,9 @@ function showWeatherData(data) {
         label: 'Temperatura (ºC)',
         data: hoursly,
         borderColor: '#c2410c',
+        borderWidth: 5,
         radius: 0,
-        tension: 0.4,
-        datalabels: {
-          color: '#FFCE56'
-        }
+        tension: 0.4
       }, {
         label: '',
         type: 'bar',

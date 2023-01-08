@@ -10,21 +10,22 @@
   <title>Weather app</title>
 </head>
 
-<body class="min-h-screen max-h-max bg-cover bg-no-repeat text-white" id="bg">
+<body class="min-h-screen max-h-max bg-blue-900/40 bg-cover bg-no-repeat text-white" id="bg">
 
   <div class=" flex flex-col md:flex-row justify-between ">
-    <div class="md:mx-6 md:mt-4 lg:ml-16 lg:mt-10">
+    <div class="mx-4 mt-2 md:mx-6 md:mt-4 lg:ml-16 lg:mt-10">
       <div class="text-6xl " id="time"></div>
       <div class="text-4xl" id="date"></div>
-      <div class="px-4 py-2 bg-blue-700/20 rounded-xl mt-8" id="current-weather-items"></div>
+      <div class="px-4 py-2 bg-blue-900/20 rounded-xl mt-4" id="current-weather-items"></div>
     </div>
-    <div class="md:mt-4 md:mr-6 lg:mr-16 lg:mt-10 md:w-3/5 lg:w-5/12">
-      <canvas id="hourly-data" class=""></canvas>
+    <div class="mt-2 mx-4 md:mt-4 md:mr-6 lg:mr-16 lg:mt-10 md:w-3/5 lg:w-5/12">
+      <canvas id="hourly-data" class="shadow-2xl"></canvas>
     </div>
   </div>
 
 
-  <div class="md:absolute bottom-4 mt-4 flex flex-col md:flex-row items-center md:items-start gap-2 w-full px-4"
+  <div
+    class="bg-blue-900/60 md:absolute bottom-0 mt-4 flex flex-col md:flex-row items-center md:items-start gap-2 w-full px-4 py-2"
     id="weather-forecast">
   </div>
 
